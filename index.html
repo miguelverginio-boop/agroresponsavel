@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Agrinho 2026 | Agricultura Sustentável</title>
-    <!-- Fontes e ícones modernos -->
+    <title>Agrinho 2026 | Agricultura Sustentável - Modo Claro/Escuro</title>
+    <!-- Fontes e ícones -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
@@ -14,17 +14,57 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: background-color 0.25s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #fafef7;
-            color: #1e2f2c;
             line-height: 1.5;
             scroll-behavior: smooth;
         }
 
-        /* container padrão */
+        /* Temas definidos via variáveis CSS */
+        :root {
+            --bg-primary: #fafef7;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --text-primary: #1e2f2c;
+            --text-secondary: #2c4b3e;
+            --accent-green: #1d6b3c;
+            --accent-light: #e6f4ec;
+            --border-light: #e2f0e6;
+            --hero-bg: #e7f5ec;
+            --shadow-sm: 0 15px 30px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0 30px 40px rgba(48, 110, 68, 0.15);
+            --btn-outline-border: #1d6b3c;
+            --footer-bg: #0a2b1f;
+            --footer-text: #cfeadb;
+            --toast-bg: #1b6b3c;
+        }
+
+        body.dark {
+            --bg-primary: #121212;
+            --bg-secondary: #1e2a24;
+            --bg-card: #1e2a24;
+            --text-primary: #eef5f0;
+            --text-secondary: #cbe5d8;
+            --accent-green: #4cae6c;
+            --accent-light: #1f3a2e;
+            --border-light: #2c4a3a;
+            --hero-bg: #1b2c24;
+            --shadow-sm: 0 15px 30px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 30px 40px rgba(76, 174, 108, 0.2);
+            --btn-outline-border: #4cae6c;
+            --footer-bg: #071a12;
+            --footer-text: #bdd9ce;
+            --toast-bg: #2a7a4b;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -33,13 +73,18 @@
 
         /* cabeçalho */
         header {
-            background: linear-gradient(135deg, #0f3b2c 0%, #1b5e3f 100%);
+            background: var(--accent-green);
             color: white;
-            padding: 1.2rem 0;
+            padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        body.dark header {
+            background: #0a2b1f;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
         }
 
         .header-flex {
@@ -63,14 +108,13 @@
         .logo p {
             font-size: 0.85rem;
             opacity: 0.9;
-            font-weight: 400;
         }
 
         nav ul {
             display: flex;
             gap: 2rem;
             list-style: none;
-            flex-wrap: wrap;
+            align-items: center;
         }
 
         nav a {
@@ -78,20 +122,38 @@
             text-decoration: none;
             font-weight: 600;
             transition: 0.2s;
-            font-size: 1rem;
             padding: 0.5rem 0;
             border-bottom: 2px solid transparent;
         }
 
         nav a:hover {
             border-bottom-color: #ffd966;
-            color: #ffeaac;
         }
 
-        /* hero section */
+        /* botão modo escuro/claro */
+        .theme-toggle {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            border-radius: 60px;
+            padding: 8px 16px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+
+        .theme-toggle:hover {
+            background: rgba(255,255,255,0.35);
+            transform: scale(1.02);
+        }
+
+        /* hero */
         .hero {
-            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJhIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgxMCkiPjxjaXJjbGUgY3g9IjIiIGN5PSIyIiByPSIxLjUiIGZpbGw9IiNjZWRlYzEiIGZpbGwtb3BhY2l0eT0iMC4yIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZTdmNWVjIi8+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNhKSIvPjwvc3ZnPg==');
-            background-size: 80px;
+            background: var(--hero-bg);
             padding: 4rem 0 5rem 0;
         }
 
@@ -110,22 +172,21 @@
         .hero-text h2 {
             font-size: 3rem;
             font-weight: 800;
-            color: #0a3622;
+            color: var(--text-primary);
             line-height: 1.2;
             margin-bottom: 1rem;
         }
 
         .hero-text .highlight {
-            color: #2b7a3e;
+            color: var(--accent-green);
             border-left: 5px solid #ffb347;
             padding-left: 1rem;
-            font-weight: 700;
         }
 
         .hero-text p {
             font-size: 1.2rem;
             margin: 1.5rem 0;
-            color: #2c4b3e;
+            color: var(--text-secondary);
         }
 
         .btn-group {
@@ -136,7 +197,7 @@
 
         .btn {
             display: inline-block;
-            background-color: #1d6b3c;
+            background-color: var(--accent-green);
             color: white;
             padding: 0.8rem 1.8rem;
             border-radius: 40px;
@@ -150,47 +211,39 @@
 
         .btn-outline {
             background: transparent;
-            border: 2px solid #1d6b3c;
-            color: #1d6b3c;
+            border: 2px solid var(--btn-outline-border);
+            color: var(--accent-green);
         }
 
         .btn-outline:hover {
-            background: #1d6b3c;
+            background: var(--accent-green);
             color: white;
-            transform: translateY(-3px);
         }
 
         .btn:hover {
-            background-color: #0e4a2a;
             transform: translateY(-3px);
+            filter: brightness(1.05);
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        .hero-img {
-            flex: 1;
-            text-align: center;
-        }
-
-        .hero-img img {
+        .hero-img svg {
             max-width: 100%;
             border-radius: 32px;
-            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.15);
-            background: #ffffffb3;
+            background: var(--bg-secondary);
+            box-shadow: var(--shadow-sm);
         }
 
-        /* cards seção */
         .section-title {
             text-align: center;
             font-size: 2.3rem;
             font-weight: 700;
-            color: #1f543d;
+            color: var(--accent-green);
             margin-bottom: 1rem;
-            position: relative;
         }
 
         .section-sub {
             text-align: center;
-            color: #4b6b5e;
+            color: var(--text-secondary);
             max-width: 700px;
             margin: 0 auto 3rem auto;
         }
@@ -203,35 +256,28 @@
         }
 
         .card {
-            background: white;
+            background: var(--bg-card);
             border-radius: 28px;
             padding: 2rem 1.5rem;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
-            transition: all 0.25s ease;
-            border: 1px solid #e2f0e6;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
             text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 30px 40px rgba(48, 110, 68, 0.15);
-            border-color: #cbe5d8;
+            box-shadow: var(--shadow-hover);
         }
 
         .card-icon {
             font-size: 3rem;
-            color: #35965c;
+            color: var(--accent-green);
             margin-bottom: 1.2rem;
         }
 
-        .card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-        }
-
-        /* benefícios */
         .benefits {
-            background: #e6f4ec;
+            background: var(--accent-light);
             border-radius: 48px;
             padding: 3rem 2rem;
             margin: 4rem 0;
@@ -249,23 +295,24 @@
             flex: 1;
             min-width: 180px;
             text-align: center;
-            background: white;
+            background: var(--bg-card);
             padding: 1.5rem;
             border-radius: 36px;
             transition: 0.2s;
+            box-shadow: var(--shadow-sm);
         }
 
         .benefit-item i {
             font-size: 2.8rem;
-            color: #309256;
+            color: var(--accent-green);
         }
 
-        /* seção projetos */
         .project-showcase {
-            background: #fffaf0;
+            background: var(--bg-secondary);
             border-radius: 48px;
             padding: 3rem 2rem;
             margin: 3rem 0;
+            border: 1px solid var(--border-light);
         }
 
         .flex-projects {
@@ -276,23 +323,22 @@
         }
 
         .project-card {
-            background: white;
+            background: var(--bg-card);
             border-radius: 28px;
             padding: 1.8rem;
             flex: 1;
             min-width: 230px;
-            box-shadow: 0 5px 12px rgba(0,0,0,0.03);
-            border-left: 8px solid #78b43a;
+            box-shadow: var(--shadow-sm);
+            border-left: 8px solid var(--accent-green);
         }
 
-        /* formulário contato */
         .contact-form {
-            background: #ffffff;
+            background: var(--bg-card);
             border-radius: 48px;
             padding: 2.5rem;
-            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow-sm);
             margin: 3rem 0;
-            border: 1px solid #cde5d9;
+            border: 1px solid var(--border-light);
         }
 
         .form-group {
@@ -302,21 +348,21 @@
         input, textarea {
             width: 100%;
             padding: 1rem;
-            border: 1px solid #cbdcd2;
+            border: 1px solid var(--border-light);
             border-radius: 32px;
             font-family: 'Inter', sans-serif;
-            background: #fefefe;
-            transition: 0.2s;
+            background: var(--bg-primary);
+            color: var(--text-primary);
         }
 
         input:focus, textarea:focus {
             outline: none;
-            border-color: #2f9e5a;
-            box-shadow: 0 0 0 3px rgba(47, 158, 90, 0.2);
+            border-color: var(--accent-green);
+            box-shadow: 0 0 0 3px rgba(76, 174, 108, 0.2);
         }
 
         button[type="submit"] {
-            background: #1d6b3c;
+            background: var(--accent-green);
             color: white;
             border: none;
             padding: 0.9rem 2rem;
@@ -324,16 +370,15 @@
             font-weight: bold;
             font-size: 1rem;
             cursor: pointer;
-            transition: 0.2s;
             width: 100%;
+            transition: 0.2s;
         }
 
         footer {
-            background: #0a2b1f;
-            color: #cfeadb;
+            background: var(--footer-bg);
+            color: var(--footer-text);
             padding: 2.5rem 0;
             margin-top: 4rem;
-            text-align: center;
             border-top-left-radius: 32px;
             border-top-right-radius: 32px;
         }
@@ -347,42 +392,14 @@
         }
 
         .footer-links a {
-            color: #d4f3e2;
+            color: var(--footer-text);
             text-decoration: none;
         }
 
-        /* responsivo */
-        @media (max-width: 800px) {
-            .hero-text h2 {
-                font-size: 2.2rem;
-            }
-            .header-flex {
-                flex-direction: column;
-                text-align: center;
-            }
-            nav ul {
-                justify-content: center;
-                gap: 1.2rem;
-            }
-            .section-title {
-                font-size: 1.9rem;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 0 20px;
-            }
-            .btn-group {
-                justify-content: center;
-            }
-        }
-
-        /* mensagem popup simples */
         .toast-msg {
             visibility: hidden;
             min-width: 250px;
-            background-color: #1b6b3c;
+            background-color: var(--toast-bg);
             color: #fff;
             text-align: center;
             border-radius: 40px;
@@ -392,14 +409,22 @@
             left: 50%;
             transform: translateX(-50%);
             z-index: 1000;
-            font-weight: 500;
             opacity: 0;
             transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
         .toast-msg.show {
             visibility: visible;
             opacity: 1;
+        }
+
+        @media (max-width: 800px) {
+            .hero-text h2 { font-size: 2.2rem; }
+            .header-flex { flex-direction: column; text-align: center; }
+            nav ul { justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
+            .section-title { font-size: 1.9rem; }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 0 20px; }
         }
     </style>
 </head>
@@ -409,7 +434,7 @@
     <div class="container header-flex">
         <div class="logo">
             <h1>Agrinho <span>2026</span></h1>
-            <p>🌱 Sustentabilidade que alimenta o futuro</p>
+            <p>🌱 Agricultura Sustentável</p>
         </div>
         <nav>
             <ul>
@@ -417,35 +442,34 @@
                 <li><a href="#praticas">Práticas</a></li>
                 <li><a href="#projetos">Projetos</a></li>
                 <li><a href="#contato">Contato</a></li>
+                <li><button id="darkModeToggle" class="theme-toggle"><i class="fas fa-moon"></i> <span id="themeText">Modo Escuro</span></button></li>
             </ul>
         </nav>
     </div>
 </header>
 
 <main>
-    <!-- Hero / Home -->
+    <!-- Seção Home -->
     <section id="home" class="hero">
         <div class="container hero-content">
             <div class="hero-text">
-                <h2>Agricultura Sustentável:<br> <span class="highlight">cultivar hoje, colher amanhã</span></h2>
-                <p>Participe do Concurso Agrinho 2026 e mostre como o campo pode regenerar o planeta. Técnicas ecológicas, respeito à terra e inovação para um futuro próspero.</p>
+                <h2>Agricultura Sustentável:<br> <span class="highlight">colher sem destruir</span></h2>
+                <p>Participe do Concurso Agrinho 2026! Descubra como técnicas regenerativas e ecológicas podem alimentar o mundo protegendo a natureza.</p>
                 <div class="btn-group">
                     <a href="#praticas" class="btn">Explorar soluções</a>
                     <a href="#contato" class="btn btn-outline">Quero participar</a>
                 </div>
             </div>
             <div class="hero-img">
-                <!-- Imagem ilustrativa SVG sustentável (base64 simples mas elegante) -->
-                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="background: #fcf9f0; border-radius: 32px; padding: 10px; width:100%;">
-                    <rect width="400" height="300" fill="#F5F9E8" rx="20" />
+                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+                    <rect width="400" height="300" fill="var(--bg-secondary)" rx="20" />
                     <circle cx="120" cy="170" r="45" fill="#B0D96B" opacity="0.9"/>
                     <circle cx="280" cy="150" r="55" fill="#89C75F" opacity="0.85"/>
                     <path d="M80 230 L120 180 L160 230 Z" fill="#D9AE5C" />
                     <path d="M240 220 L280 160 L320 220 Z" fill="#D9AE5C" />
                     <rect x="180" y="230" width="40" height="50" fill="#A5763E" rx="5"/>
                     <path d="M190 230 L200 190 L210 230" fill="#5F8B3E" />
-                    <text x="150" y="280" fill="#3C6E47" font-size="14" font-weight="bold">🌾 solo fértil + tecnologia verde</text>
-                    <path d="M30 60 L80 40 L130 65 L170 50" stroke="#78B43A" stroke-width="3" fill="none" stroke-dasharray="4"/>
+                    <text x="140" y="285" fill="var(--text-primary)" font-size="14" font-weight="bold">🌾 solo fértil + consciência</text>
                     <circle cx="330" cy="90" r="25" fill="#F9DD7A" />
                     <text x="320" y="96" fill="#7A5900" font-size="18">☀️</text>
                 </svg>
@@ -453,91 +477,91 @@
         </div>
     </section>
 
-    <!-- Seção Práticas Sustentáveis -->
+    <!-- Práticas Sustentáveis -->
     <div class="container" id="praticas">
-        <h2 class="section-title">🌿 Práticas que Transformam</h2>
-        <p class="section-sub">Conheça métodos agroecológicos que aumentam produtividade preservando recursos naturais.</p>
+        <h2 class="section-title">🌿 Práticas Sustentáveis</h2>
+        <p class="section-sub">Métodos agroecológicos que aumentam a produtividade e protegem os recursos naturais.</p>
         <div class="cards-grid">
             <div class="card">
                 <div class="card-icon"><i class="fas fa-seedling"></i></div>
-                <h3>Rotacionação de Culturas</h3>
-                <p>Alternar espécies no mesmo terreno evita o esgotamento do solo, reduz pragas e melhora a fertilidade naturalmente.</p>
+                <h3>Rotação de Culturas</h3>
+                <p>Alterna espécies para evitar esgotamento, reduzir pragas e melhorar a fertilidade do solo naturalmente.</p>
             </div>
             <div class="card">
                 <div class="card-icon"><i class="fas fa-tint"></i></div>
-                <h3>Irrigação Eficiente</h3>
-                <p>Gotejamento e captação de água da chuva reduzem desperdício, garantindo colheitas mesmo em períodos de estiagem.</p>
+                <h3>Irrigação Consciente</h3>
+                <p>Gotejamento e captação de água da chuva garantem eficiência hídrica, essencial para o futuro.</p>
             </div>
             <div class="card">
                 <div class="card-icon"><i class="fas fa-leaf"></i></div>
-                <h3>Agrofloresta</h3>
-                <p>Integra árvores, cultivos e criação animal, sequestrando carbono e gerando renda diversificada.</p>
+                <h3>Agroflorestas</h3>
+                <p>Integra árvores, cultivos e animais, sequestrando carbono e gerando renda diversa.</p>
             </div>
             <div class="card">
                 <div class="card-icon"><i class="fas fa-recycle"></i></div>
                 <h3>Compostagem</h3>
-                <p>Resíduos orgânicos viram adubo de alta qualidade, reduzindo lixo e eliminando fertilizantes químicos.</p>
+                <p>Transforma resíduos em adubo rico, reduz lixo e elimina necessidade de químicos.</p>
             </div>
         </div>
     </div>
 
-    <!-- Benefícios destaque -->
+    <!-- Benefícios -->
     <div class="container">
         <div class="benefits">
-            <h2 class="section-title" style="margin-top:0;">✨ Impactos da Agricultura Sustentável</h2>
+            <h2 class="section-title" style="margin-top:0;">✨ Vantagens da Agricultura Sustentável</h2>
             <div class="benefits-grid">
-                <div class="benefit-item"><i class="fas fa-chart-line"></i><h4>+40% produtividade</h4><small>em sistemas regenerativos</small></div>
-                <div class="benefit-item"><i class="fas fa-water"></i><h4>Redução de água</h4><small>até 60% com manejo eficiente</small></div>
-                <div class="benefit-item"><i class="fas fa-smile"></i><h4>Qualidade de vida</h4><small>comunidades rurais fortalecidas</small></div>
-                <div class="benefit-item"><i class="fas fa-globe-americas"></i><h4>Carbono neutro</h4><small>solos vivos capturam CO₂</small></div>
+                <div class="benefit-item"><i class="fas fa-chart-line"></i><h4>+45% produtividade</h4><small>em sistemas regenerativos</small></div>
+                <div class="benefit-item"><i class="fas fa-water"></i><h4>Redução hídrica</h4><small>até 60% de economia</small></div>
+                <div class="benefit-item"><i class="fas fa-smile"></i><h4>Fortalecimento rural</h4><small>comunidades mais justas</small></div>
+                <div class="benefit-item"><i class="fas fa-globe-americas"></i><h4>Carbono no solo</h4><small>mitigação climática</small></div>
             </div>
         </div>
     </div>
 
-    <!-- Projetos inspiradores + Concurso -->
+    <!-- Projetos + concurso -->
     <div class="container" id="projetos">
         <div class="project-showcase">
-            <h2 class="section-title">🏆 Concurso Agrinho 2026 – Cases Reais</h2>
-            <p class="section-sub">Alunos e professores de todo Brasil já transformaram ideias em ações sustentáveis. Inspire-se!</p>
+            <h2 class="section-title">🏆 Concurso Agrinho 2026 – Cases de sucesso</h2>
+            <p class="section-sub">Ideias de estudantes e agricultores que estão transformando realidades com sustentabilidade.</p>
             <div class="flex-projects">
                 <div class="project-card">
-                    <i class="fas fa-school" style="font-size: 2rem; color:#468966;"></i>
-                    <h3>Horta na Escola</h3>
-                    <p>Projeto de estudantes do Paraná que usa compostagem e captação de água da chuva para alimentar merenda escolar.</p>
+                    <i class="fas fa-school" style="font-size: 2rem; color: var(--accent-green);"></i>
+                    <h3>Horta Agroecológica</h3>
+                    <p>Escola no Paraná produziu mais de 500kg de alimentos orgânicos com compostagem e reuso de água.</p>
                 </div>
                 <div class="project-card">
-                    <i class="fas fa-tractor" style="font-size: 2rem; color:#468966;"></i>
-                    <h3>Bioinsumos Caseiros</h3>
-                    <p>Família rural produz defensivos naturais e reduz em 90% o uso de agroquímicos, vencendo edição Agrinho 2023.</p>
+                    <i class="fas fa-tractor" style="font-size: 2rem; color: var(--accent-green);"></i>
+                    <h3>Biofábrica Familiar</h3>
+                    <p>Produção de bioinsumos caseiros reduziu 90% dos agroquímicos e venceu etapa regional.</p>
                 </div>
                 <div class="project-card">
-                    <i class="fas fa-hand-holding-heart" style="font-size: 2rem; color:#468966;"></i>
+                    <i class="fas fa-hand-holding-heart" style="font-size: 2rem; color: var(--accent-green);"></i>
                     <h3>Restauração de Nascentes</h3>
-                    <p>Mutião de jovens plantou 2 mil mudas ciliares, recuperando volume de água na propriedade.</p>
+                    <p>Mutirão plantou 3 mil mudas e recuperou volume de água em área de seca severa.</p>
                 </div>
             </div>
             <div style="text-align: center; margin-top: 2rem;">
-                <a href="#" class="btn" style="background:#c28135;">Veja como participar →</a>
+                <a href="#contato" class="btn" style="background: #c28135;">Inscreva-se no Agrinho 2026 →</a>
             </div>
         </div>
     </div>
 
-    <!-- Chamada interativa + dados -->
+    <!-- Chamada interativa -->
     <div class="container">
-        <div style="background: linear-gradient(112deg, #dff0e8, #ffffff); padding: 2rem; border-radius: 48px; margin: 2rem 0;">
+        <div style="background: var(--accent-light); padding: 2rem; border-radius: 48px; margin: 2rem 0;">
             <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; justify-content: space-between;">
-                <div><i class="fas fa-calendar-alt" style="font-size: 3rem; color:#2e7d5e;"></i></div>
-                <div><h3>Inscrições Agrinho 2026 abertas!</h3><p>Prazo até 30 de agosto. Desenvolva um projeto sustentável e concorra a prêmios incríveis.</p></div>
+                <div><i class="fas fa-calendar-alt" style="font-size: 3rem; color: var(--accent-green);"></i></div>
+                <div><h3>📢 Inscrições Agrinho 2026 abertas!</h3><p>Prazo até 30 de agosto. Desenvolva um projeto sustentável e concorra.</p></div>
                 <div><a href="#contato" class="btn">Quero me inscrever</a></div>
             </div>
         </div>
     </div>
 
-    <!-- Formulário de contato e interesse -->
+    <!-- Formulário contato -->
     <div class="container" id="contato">
         <div class="contact-form">
-            <h2 class="section-title" style="margin-bottom: 0.5rem;">📬 Participe do Agrinho 2026</h2>
-            <p class="section-sub" style="margin-bottom: 2rem;">Cadastre seu e-mail para receber dicas de agricultura sustentável e novidades do concurso.</p>
+            <h2 class="section-title" style="margin-bottom: 0.5rem;">📬 Faça parte do Agrinho 2026</h2>
+            <p class="section-sub" style="margin-bottom: 2rem;">Cadastre-se para receber material exclusivo sobre agricultura sustentável e concursos.</p>
             <form id="formContato">
                 <div class="form-group">
                     <input type="text" id="nome" placeholder="Seu nome completo" required>
@@ -546,11 +570,11 @@
                     <input type="email" id="email" placeholder="Seu melhor e-mail" required>
                 </div>
                 <div class="form-group">
-                    <textarea id="mensagem" rows="3" placeholder="Conte-nos sua ideia ou dúvida sobre agricultura sustentável..."></textarea>
+                    <textarea id="mensagem" rows="3" placeholder="Conte-nos sua ideia sustentável ou dúvida..."></textarea>
                 </div>
                 <button type="submit" id="btnEnviar"><i class="fas fa-paper-plane"></i> Enviar mensagem</button>
             </form>
-            <p style="font-size:0.8rem; margin-top:1rem; text-align:center;">🌱 Sua ideia pode transformar comunidades. Vamos juntos?</p>
+            <p style="font-size:0.8rem; margin-top:1rem; text-align:center;">🌍 Juntos cultivamos um futuro com respeito à terra e às pessoas.</p>
         </div>
     </div>
 </main>
@@ -563,46 +587,82 @@
             <a href="#projetos">Projetos</a>
             <a href="#contato">Contato</a>
         </div>
-        <p style="margin: 1rem 0;">🌾 Concurso Agrinho 2026 – Agricultura Sustentável: tecnologia, saberes e respeito à terra.</p>
-        <p>✨ Desenvolvido com 💚 por estudantes comprometidos com o futuro do campo | Todos os direitos inspirados na causa sustentável</p>
-        <p style="margin-top: 1rem; font-size: 0.8rem;">© 2026 Agrinho Sustentável – FAEP/SENAR-PR</p>
+        <p style="margin: 1rem 0;">🌾 Concurso Agrinho 2026 – Agricultura Sustentável: inovação, respeito e conhecimento camponês.</p>
+        <p>💚 Criado para inspirar e engajar alunos, professores e comunidades rurais | Projeto para GitHub Pages</p>
+        <p style="margin-top: 1rem;">© 2026 Movimento Agrinho Sustentável</p>
     </div>
 </footer>
 
-<!-- Toast de feedback -->
-<div id="toastMsg" class="toast-msg">Mensagem enviada com sucesso! 🌱</div>
+<div id="toastMsg" class="toast-msg">Mensagem enviada! 🌱 Obrigado por se inscrever.</div>
 
 <script>
     (function() {
-        // suavizar navegação para ancora
+        // smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const targetId = this.getAttribute('href');
                 if(targetId === "#" || targetId === "") return;
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
+                const target = document.querySelector(targetId);
+                if(target) {
                     e.preventDefault();
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // Formulário com feedback moderno
+        // Modo escuro / claro com persistência local
+        const toggleBtn = document.getElementById('darkModeToggle');
+        const themeTextSpan = document.getElementById('themeText');
+        const body = document.body;
+        
+        function setTheme(theme) {
+            if(theme === 'dark') {
+                body.classList.add('dark');
+                localStorage.setItem('agrinho-theme', 'dark');
+                if(themeTextSpan) themeTextSpan.innerHTML = 'Modo Claro';
+                if(toggleBtn.querySelector('i')) toggleBtn.querySelector('i').className = 'fas fa-sun';
+            } else {
+                body.classList.remove('dark');
+                localStorage.setItem('agrinho-theme', 'light');
+                if(themeTextSpan) themeTextSpan.innerHTML = 'Modo Escuro';
+                if(toggleBtn.querySelector('i')) toggleBtn.querySelector('i').className = 'fas fa-moon';
+            }
+        }
+        
+        const savedTheme = localStorage.getItem('agrinho-theme');
+        if(savedTheme === 'dark') {
+            setTheme('dark');
+        } else if(savedTheme === 'light') {
+            setTheme('light');
+        } else {
+            // preferência do sistema?
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if(prefersDark) setTheme('dark');
+            else setTheme('light');
+        }
+        
+        toggleBtn.addEventListener('click', () => {
+            if(body.classList.contains('dark')) {
+                setTheme('light');
+            } else {
+                setTheme('dark');
+            }
+        });
+        
+        // Formulário com feedback elegante
         const form = document.getElementById('formContato');
         const toast = document.getElementById('toastMsg');
         
         function showToast(message, isError = false) {
-            toast.textContent = message || (isError ? "Ops! Verifique os dados." : "Mensagem enviada com sucesso! 🌱");
+            toast.textContent = message || (isError ? "Verifique os dados." : "Mensagem enviada com sucesso! 🌱");
             if(isError) toast.style.backgroundColor = "#b13e3e";
-            else toast.style.backgroundColor = "#1b6b3c";
+            else toast.style.backgroundColor = "var(--toast-bg)";
             toast.classList.add('show');
             setTimeout(() => {
                 toast.classList.remove('show');
-                // resetar cor
-                setTimeout(() => { toast.style.backgroundColor = "#1b6b3c"; }, 400);
-            }, 3000);
+            }, 3200);
         }
-
+        
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             const nome = document.getElementById('nome').value.trim();
@@ -614,17 +674,16 @@
                 return;
             }
             if(!email.includes('@') || !email.includes('.')) {
-                showToast("E-mail parece inválido. Use um formato correto.", true);
+                showToast("E-mail inválido. Use um formato correto.", true);
                 return;
             }
-            
-            // simulando envio amigável (sem backend real)
-            console.log(`Mensagem de ${nome} (${email}): ${mensagem}`);
-            showToast("Muito obrigado! Sua mensagem foi registrada. Em breve novidades do Agrinho 2026 💚", false);
+            // Simulação de sucesso
+            console.log(`Cadastro Agrinho: ${nome}, ${email}, mensagem: ${mensagem}`);
+            showToast("Cadastro realizado! Em breve novidades sobre o concurso 2026 💚", false);
             form.reset();
         });
         
-        // pequeno destaque de cards e animações
+        // animação sutil nos cards
         const cards = document.querySelectorAll('.card');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -640,10 +699,6 @@
             card.style.transition = "opacity 0.5s ease, transform 0.4s ease";
             observer.observe(card);
         });
-        
-        // ativar hero img leve
-        const heroSvg = document.querySelector('.hero-img svg');
-        if(heroSvg) heroSvg.style.transition = "transform 0.3s";
     })();
 </script>
 </body>
