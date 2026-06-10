@@ -39,7 +39,6 @@
             --btn-outline-border: #1d6b3c;
             --footer-bg: #0a2b1f;
             --footer-text: #cfeadb;
-            --toast-bg: #1b6b3c;
             --info-bg: #fef9e6;
         }
 
@@ -59,7 +58,6 @@
             --btn-outline-border: #4cae6c;
             --footer-bg: #071a12;
             --footer-text: #bdd9ce;
-            --toast-bg: #2a7a4b;
             --info-bg: #2a2618;
         }
 
@@ -361,48 +359,6 @@
             color: var(--accent-green);
         }
 
-        /* Formulário */
-        .contact-form {
-            background: var(--bg-card);
-            border-radius: 48px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow-sm);
-            margin: 3rem 0;
-            border: 1px solid var(--border-light);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid var(--border-light);
-            border-radius: 32px;
-            font-family: 'Inter', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--accent-green);
-            box-shadow: 0 0 0 3px rgba(76, 174, 108, 0.2);
-        }
-
-        button[type="submit"] {
-            background: var(--accent-green);
-            color: white;
-            border: none;
-            padding: 0.9rem 2rem;
-            border-radius: 60px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            width: 100%;
-        }
-
         footer {
             background: var(--footer-bg);
             color: var(--footer-text);
@@ -425,27 +381,6 @@
             text-decoration: none;
         }
 
-        .toast-msg {
-            visibility: hidden;
-            min-width: 250px;
-            background-color: var(--toast-bg);
-            color: #fff;
-            text-align: center;
-            border-radius: 40px;
-            padding: 12px;
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            opacity: 0;
-            transition: 0.3s;
-        }
-        .toast-msg.show {
-            visibility: visible;
-            opacity: 1;
-        }
-
         @media (max-width: 800px) {
             .hero-text h2 { font-size: 2.2rem; }
             .header-flex { flex-direction: column; text-align: center; }
@@ -466,7 +401,6 @@
                 <li><a href="#home">Início</a></li>
                 <li><a href="#praticas">Práticas</a></li>
                 <li><a href="#dicas">Dicas & Exemplos</a></li>
-                <li><a href="#contato">Newsletter</a></li>
                 <li><button id="darkModeToggle" class="theme-toggle"><i class="fas fa-moon"></i> <span id="themeText">Modo Escuro</span></button></li>
             </ul>
         </nav>
@@ -577,6 +511,14 @@
                     <i class="fas fa-check-circle"></i> <strong>Dado importante:</strong> Propriedades que adotam plantio direto têm até 70% menos erosão do solo e economia de combustível.
                 </div>
             </div>
+
+            <div class="tip-card">
+                <h3><i class="fas fa-solar-panel"></i> Dica 5: Energia renovável no campo</h3>
+                <p>Instalação de painéis solares e biodigestores reduz custos e emissões. Os biodigestores transformam dejetos em biogás e biofertilizante.</p>
+                <div class="example-box">
+                    <i class="fas fa-check-circle"></i> <strong>Exemplo real:</strong> Granja do Sul (SC) utiliza biodigestor para gerar energia elétrica e reduzir em 70% os custos com energia e fertilizantes.
+                </div>
+            </div>
         </div>
     </div>
 
@@ -593,24 +535,12 @@
         </div>
     </div>
 
-    <!-- Formulário de newsletter (conteúdo) -->
-    <div class="container" id="contato">
-        <div class="contact-form">
-            <h2 class="section-title" style="margin-bottom: 0.5rem;">📧 Receba mais conteúdos</h2>
-            <p class="section-sub" style="margin-bottom: 2rem;">Inscreva-se para receber dicas semanais sobre agricultura sustentável, cases e inovações.</p>
-            <form id="formNewsletter">
-                <div class="form-group">
-                    <input type="text" id="nome" placeholder="Seu nome" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" id="email" placeholder="Seu melhor e-mail" required>
-                </div>
-                <div class="form-group">
-                    <textarea id="interesse" rows="2" placeholder="Qual prática sustentável mais te interessa? (opcional)"></textarea>
-                </div>
-                <button type="submit" id="btnEnviar"><i class="fas fa-paper-plane"></i> Quero aprender mais</button>
-            </form>
-            <p style="font-size:0.8rem; margin-top:1rem; text-align:center;">🌱 Compartilhamos apenas conteúdo relevante. Sem spam.</p>
+    <!-- Chamada final inspiradora -->
+    <div class="container">
+        <div style="background: linear-gradient(135deg, var(--accent-light) 0%, var(--bg-card) 100%); border-radius: 48px; padding: 3rem 2rem; text-align: center; margin: 2rem 0 3rem 0;">
+            <i class="fas fa-seedling" style="font-size: 3.5rem; color: var(--accent-green); margin-bottom: 1rem; display: inline-block;"></i>
+            <h2 style="color: var(--accent-green); margin-bottom: 1rem;">Pequenas atitudes, grandes transformações</h2>
+            <p style="font-size: 1.1rem; max-width: 700px; margin: 0 auto; color: var(--text-secondary);">Cada prática sustentável adotada é um passo rumo a um futuro onde a natureza e a produção agrícola caminham juntas. Comece hoje mesmo com uma dessas dicas!</p>
         </div>
     </div>
 </main>
@@ -620,16 +550,13 @@
         <div class="footer-links">
             <a href="#home">Início</a>
             <a href="#praticas">Práticas</a>
-            <a href="#dicas">Dicas</a>
-            <a href="#contato">Newsletter</a>
+            <a href="#dicas">Dicas & Exemplos</a>
         </div>
         <p style="margin: 1rem 0;">🌿 Agricultura Sustentável - Cultivando o futuro com respeito à terra e às pessoas.</p>
         <p>💚 Conteúdo livre para inspirar produtores, estudantes e apaixonados por sustentabilidade.</p>
         <p style="margin-top: 1rem;">© 2026 - Portal AgriCultura Sustentável</p>
     </div>
 </footer>
-
-<div id="toastMsg" class="toast-msg">Inscrição realizada! Obrigado por fazer parte 🌎</div>
 
 <script>
     (function() {
@@ -677,33 +604,6 @@
             body.classList.contains('dark') ? setTheme('light') : setTheme('dark');
         });
         
-        // Formulário
-        const form = document.getElementById('formNewsletter');
-        const toast = document.getElementById('toastMsg');
-        
-        function showToast(message, isError = false) {
-            toast.textContent = message || (isError ? "Preencha os campos corretamente." : "Inscrição realizada com sucesso! 🌱");
-            toast.style.backgroundColor = isError ? "#b13e3e" : "var(--toast-bg)";
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 3000);
-        }
-        
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const nome = document.getElementById('nome').value.trim();
-            const email = document.getElementById('email').value.trim();
-            if(!nome || !email) {
-                showToast("Por favor, preencha nome e e-mail.", true);
-                return;
-            }
-            if(!email.includes('@') || !email.includes('.')) {
-                showToast("E-mail inválido. Use um formato correto.", true);
-                return;
-            }
-            showToast("Obrigado! Você receberá conteúdos incríveis sobre agricultura sustentável.", false);
-            form.reset();
-        });
-        
         // Animação cards
         const cards = document.querySelectorAll('.card');
         const observer = new IntersectionObserver((entries) => {
@@ -717,6 +617,15 @@
         cards.forEach(card => {
             card.style.opacity = "0";
             card.style.transform = "translateY(20px)";
+            card.style.transition = "opacity 0.5s ease, transform 0.4s ease";
+            observer.observe(card);
+        });
+
+        // Animação para tip cards também
+        const tipCards = document.querySelectorAll('.tip-card');
+        tipCards.forEach((card, index) => {
+            card.style.opacity = "0";
+            card.style.transform = "translateY(15px)";
             card.style.transition = "opacity 0.5s ease, transform 0.4s ease";
             observer.observe(card);
         });
