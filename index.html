@@ -3,23 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Agricultura Sustentável | Guia Completo</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Agrinho 2026 | Agricultura Sustentável - Futuro do Campo</title>
     <style>
+        /* Reset e fontes futurísticas nativas */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Fonte futurística usando system fonts com fallback futurístico */
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Segoe UI', 'SF Pro Display', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
             line-height: 1.5;
             scroll-behavior: smooth;
             transition: background-color 0.3s ease, color 0.3s ease;
+            letter-spacing: -0.01em;
+        }
+
+        /* Estilo futurístico para títulos */
+        h1, h2, h3, h4, .logo, .btn, .stat-number, .section-title {
+            font-family: 'Segoe UI', 'SF Pro Display', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
         }
 
         /* Variáveis de tema */
@@ -39,22 +45,24 @@
             --footer-bg: #0a2b1f;
             --footer-text: #cfeadb;
             --info-bg: #fef9e6;
+            --agrinho-gold: #ffd700;
+            --agrinho-orange: #ff8c42;
         }
 
         body.dark {
-            --bg-primary: #121212;
-            --bg-secondary: #1e2a24;
-            --bg-card: #1e2a24;
+            --bg-primary: #0a0f0d;
+            --bg-secondary: #141e18;
+            --bg-card: #1a2a22;
             --text-primary: #eef5f0;
             --text-secondary: #cbe5d8;
             --accent-green: #4cae6c;
             --accent-dark: #2d7a4a;
             --accent-light: #1f3a2e;
             --border-light: #2c4a3a;
-            --hero-bg: #1b2c24;
+            --hero-bg: #0f241c;
             --shadow-sm: 0 15px 30px rgba(0, 0, 0, 0.3);
             --shadow-hover: 0 30px 40px rgba(76, 174, 108, 0.2);
-            --footer-bg: #071a12;
+            --footer-bg: #050f0a;
             --footer-text: #bdd9ce;
             --info-bg: #2a2618;
         }
@@ -70,9 +78,9 @@
             padding: 0 24px;
         }
 
-        /* Header */
+        /* Header futurístico */
         header {
-            background: linear-gradient(135deg, #0f3b2c 0%, var(--accent-green) 100%);
+            background: linear-gradient(135deg, #0a2b1f 0%, var(--accent-green) 100%);
             color: white;
             padding: 1rem 0;
             position: sticky;
@@ -82,7 +90,7 @@
         }
 
         body.dark header {
-            background: linear-gradient(135deg, #0a2b1f 0%, #1b5e3f 100%);
+            background: linear-gradient(135deg, #051a10 0%, #0f3b2c 100%);
         }
 
         .header-flex {
@@ -96,16 +104,24 @@
         .logo h1 {
             font-size: 1.8rem;
             font-weight: 800;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #fff, #ffd966);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         .logo span {
             color: #ffd966;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
         }
 
         .logo p {
             font-size: 0.85rem;
             opacity: 0.9;
+            font-weight: 300;
         }
 
         nav ul {
@@ -131,7 +147,6 @@
             transform: translateY(-2px);
         }
 
-        /* Botão toggle tema animado */
         .theme-toggle {
             background: rgba(255,255,255,0.2);
             border: none;
@@ -149,11 +164,7 @@
 
         .theme-toggle:hover {
             background: rgba(255,255,255,0.35);
-            transform: scale(1.05) rotate(5deg);
-        }
-
-        .theme-toggle:active {
-            transform: scale(0.95);
+            transform: scale(1.05);
         }
 
         /* Hero */
@@ -239,11 +250,6 @@
         .btn:hover {
             transform: translateY(-5px) scale(1.05);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-            filter: brightness(1.08);
-        }
-
-        .btn:active {
-            transform: translateY(-2px) scale(0.98);
         }
 
         .btn-outline {
@@ -258,60 +264,22 @@
 
         .btn-outline:hover {
             color: white;
-            border-color: var(--accent-green);
         }
 
-        /* Animação pulsante */
-        .btn-pulse {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(29, 107, 60, 0.4);
-            }
-            70% {
-                box-shadow: 0 0 0 12px rgba(29, 107, 60, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(29, 107, 60, 0);
-            }
-        }
-
-        body.dark .btn-pulse {
-            animation: pulseDark 2s infinite;
-        }
-
-        @keyframes pulseDark {
-            0% {
-                box-shadow: 0 0 0 0 rgba(76, 174, 108, 0.4);
-            }
-            70% {
-                box-shadow: 0 0 0 12px rgba(76, 174, 108, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(76, 174, 108, 0);
-            }
-        }
-
-        .hero-img svg {
-            max-width: 100%;
-            border-radius: 32px;
-            background: var(--bg-secondary);
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.5s ease, box-shadow 0.3s;
-        }
-
-        .hero-img svg:hover {
-            transform: scale(1.02) rotate(1deg);
-            box-shadow: 0 25px 40px rgba(0, 0, 0, 0.15);
+        /* SVG Icons usando inline */
+        .icon {
+            width: 32px;
+            height: 32px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
         }
 
         /* Seções */
         .section-title {
             text-align: center;
             font-size: 2.3rem;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--accent-green);
             margin-bottom: 1rem;
             position: relative;
@@ -324,7 +292,7 @@
             margin: 0 auto 3rem auto;
         }
 
-        /* Cards de práticas */
+        /* Cards */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -345,7 +313,7 @@
             transform: translateY(30px);
         }
 
-        .card.reveal {
+        .card.revealed {
             opacity: 1;
             transform: translateY(0);
         }
@@ -355,15 +323,9 @@
             box-shadow: var(--shadow-hover);
         }
 
-        .card-icon {
-            font-size: 3rem;
-            color: var(--accent-green);
-            margin-bottom: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover .card-icon {
-            transform: scale(1.1) rotate(5deg);
+        .card h3 {
+            font-size: 1.5rem;
+            margin: 1rem 0 0.5rem;
         }
 
         /* Benefícios */
@@ -390,32 +352,21 @@
             padding: 1.5rem;
             border-radius: 36px;
             box-shadow: var(--shadow-sm);
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transition: all 0.3s;
             opacity: 0;
             transform: translateY(30px);
         }
 
-        .benefit-item.reveal {
+        .benefit-item.revealed {
             opacity: 1;
             transform: translateY(0);
         }
 
         .benefit-item:hover {
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: var(--shadow-hover);
+            transform: translateY(-8px);
         }
 
-        .benefit-item i {
-            font-size: 2.8rem;
-            color: var(--accent-green);
-            transition: transform 0.3s;
-        }
-
-        .benefit-item:hover i {
-            transform: scale(1.15);
-        }
-
-        /* Dicas e exemplos */
+        /* Dicas */
         .tips-section {
             margin: 4rem 0;
         }
@@ -427,19 +378,18 @@
             margin-bottom: 1.5rem;
             border-left: 8px solid var(--accent-green);
             box-shadow: var(--shadow-sm);
-            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transition: all 0.4s;
             opacity: 0;
             transform: translateX(-30px);
         }
 
-        .tip-card.reveal {
+        .tip-card.revealed {
             opacity: 1;
             transform: translateX(0);
         }
 
         .tip-card:hover {
             transform: translateX(10px) translateY(-5px);
-            box-shadow: var(--shadow-hover);
         }
 
         .tip-card h3 {
@@ -454,12 +404,6 @@
             padding: 1.5rem;
             margin-top: 1rem;
             border: 1px solid var(--border-light);
-            transition: all 0.3s ease;
-        }
-
-        .example-box:hover {
-            transform: scale(1.01);
-            box-shadow: var(--shadow-sm);
         }
 
         /* Estatísticas */
@@ -476,56 +420,61 @@
             padding: 2rem;
             border-radius: 32px;
             box-shadow: var(--shadow-sm);
-            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transition: all 0.3s;
             opacity: 0;
             transform: scale(0.9);
         }
 
-        .stat.reveal {
+        .stat.revealed {
             opacity: 1;
             transform: scale(1);
         }
 
         .stat:hover {
-            transform: translateY(-8px) scale(1.03);
-            box-shadow: var(--shadow-hover);
+            transform: translateY(-8px);
         }
 
         .stat-number {
             font-size: 3rem;
             font-weight: 800;
             color: var(--accent-green);
-            transition: transform 0.3s;
-            display: inline-block;
         }
 
-        .stat:hover .stat-number {
-            transform: scale(1.1);
-        }
-
-        /* Chamada final */
-        .call-to-action {
-            background: linear-gradient(135deg, var(--accent-light) 0%, var(--bg-card) 100%);
+        /* Seção Agrinho */
+        .agrinho-section {
+            background: linear-gradient(135deg, var(--agrinho-gold) 0%, var(--agrinho-orange) 100%);
             border-radius: 48px;
             padding: 3rem 2rem;
+            margin: 4rem 0;
+            color: #1e2f2c;
+        }
+
+        body.dark .agrinho-section {
+            background: linear-gradient(135deg, #c9a03d 0%, #e67e22 100%);
+        }
+
+        .agrinho-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .agrinho-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 32px;
+            padding: 1.8rem;
             text-align: center;
-            margin: 2rem 0 3rem 0;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+            transition: transform 0.3s;
         }
 
-        .call-to-action.reveal {
-            opacity: 1;
-            transform: translateY(0);
+        body.dark .agrinho-card {
+            background: rgba(0,0,0,0.7);
+            color: white;
         }
 
-        .call-to-action i {
-            font-size: 3.5rem;
-            color: var(--accent-green);
-            margin-bottom: 1rem;
-            display: inline-block;
-            animation: pulse 2s infinite;
+        .agrinho-card:hover {
+            transform: translateY(-8px);
         }
 
         /* Footer */
@@ -549,25 +498,12 @@
         .footer-links a {
             color: var(--footer-text);
             text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
+            transition: all 0.3s;
         }
 
         .footer-links a:hover {
             color: #ffd966;
             transform: translateY(-3px);
-        }
-
-        /* Scroll reveal - classes base */
-        .reveal-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .reveal-on-scroll.revealed {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         /* Responsivo */
@@ -583,15 +519,16 @@
 <header>
     <div class="container header-flex">
         <div class="logo">
-            <h1>🌿 Agri<span>Cultura</span></h1>
-            <p>Sustentabilidade que alimenta o futuro</p>
+            <h1>🌿 AGRINHO <span>2026</span></h1>
+            <p>Agricultura Sustentável | Futuro do Campo</p>
         </div>
         <nav>
             <ul>
                 <li><a href="#home">Início</a></li>
                 <li><a href="#praticas">Práticas</a></li>
-                <li><a href="#dicas">Dicas & Exemplos</a></li>
-                <li><button id="darkModeToggle" class="theme-toggle"><i class="fas fa-moon"></i> <span id="themeText">Modo Escuro</span></button></li>
+                <li><a href="#agrinho">Agrinho 2026</a></li>
+                <li><a href="#dicas">Dicas</a></li>
+                <li><button id="darkModeToggle" class="theme-toggle">🌙 Modo Escuro</button></li>
             </ul>
         </nav>
     </div>
@@ -603,14 +540,14 @@
         <div class="container hero-content">
             <div class="hero-text">
                 <h2>Agricultura Sustentável:<br> <span class="highlight">produzir sem destruir</span></h2>
-                <p>Conheça técnicas, dados e exemplos reais que mostram como é possível alimentar o mundo respeitando os limites da natureza.</p>
+                <p>Conheça técnicas, dados e exemplos reais que mostram como é possível alimentar o mundo respeitando os limites da natureza. Participe do Concurso Agrinho 2026!</p>
                 <div class="btn-group">
-                    <a href="#praticas" class="btn btn-pulse">Explorar práticas</a>
-                    <a href="#dicas" class="btn btn-outline">Ver dicas</a>
+                    <a href="#praticas" class="btn">Explorar práticas</a>
+                    <a href="#agrinho" class="btn btn-outline">Concurso Agrinho</a>
                 </div>
             </div>
             <div class="hero-img">
-                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+                <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" style="width:100%; max-width:400px; border-radius:32px; background:var(--bg-secondary); padding:15px;">
                     <rect width="400" height="300" fill="var(--bg-secondary)" rx="20" />
                     <circle cx="120" cy="170" r="45" fill="#B0D96B" opacity="0.9"/>
                     <circle cx="280" cy="150" r="55" fill="#89C75F" opacity="0.85"/>
@@ -631,36 +568,53 @@
         <h2 class="section-title">🌾 Práticas Sustentáveis Essenciais</h2>
         <p class="section-sub">Métodos comprovados que aumentam a produtividade e regeneram o meio ambiente.</p>
         <div class="cards-grid">
-            <div class="card reveal-on-scroll">
-                <div class="card-icon"><i class="fas fa-exchange-alt"></i></div>
-                <h3>Rotação de Culturas</h3>
-                <p>Alternar espécies evita o esgotamento do solo, reduz pragas e doenças naturalmente, além de melhorar a fertilidade.</p>
-            </div>
-            <div class="card reveal-on-scroll">
-                <div class="card-icon"><i class="fas fa-tint"></i></div>
-                <h3>Irrigação por Gotejamento</h3>
-                <p>Economiza até 60% de água em comparação com métodos tradicionais. Água vai direto à raiz, sem desperdício.</p>
-            </div>
-            <div class="card reveal-on-scroll">
-                <div class="card-icon"><i class="fas fa-tree"></i></div>
-                <h3>Sistemas Agroflorestais</h3>
-                <p>Integra árvores, cultivos e animais. Aumenta a biodiversidade, sequestra carbono e gera renda diversificada.</p>
-            </div>
-            <div class="card reveal-on-scroll">
-                <div class="card-icon"><i class="fas fa-leaf"></i></div>
-                <h3>Adubação Verde</h3>
-                <p>Plantio de leguminosas (como crotalária) que fixam nitrogênio, melhorando o solo sem fertilizantes químicos.</p>
-            </div>
+            <div class="card"><h3>🔄 Rotação de Culturas</h3><p>Alternar espécies evita o esgotamento do solo, reduz pragas e doenças naturalmente.</p></div>
+            <div class="card"><h3>💧 Irrigação por Gotejamento</h3><p>Economiza até 60% de água. Água vai direto à raiz, sem desperdício.</p></div>
+            <div class="card"><h3>🌳 Sistemas Agroflorestais</h3><p>Integra árvores, cultivos e animais. Aumenta a biodiversidade.</p></div>
+            <div class="card"><h3>🌱 Adubação Verde</h3><p>Leguminosas fixam nitrogênio, melhorando o solo sem químicos.</p></div>
         </div>
     </div>
 
     <!-- Estatísticas -->
     <div class="container">
         <div class="stats-grid">
-            <div class="stat reveal-on-scroll"><div class="stat-number">+40%</div><p>produtividade em sistemas regenerativos</p></div>
-            <div class="stat reveal-on-scroll"><div class="stat-number">-60%</div><p>consumo de água com manejo eficiente</p></div>
-            <div class="stat reveal-on-scroll"><div class="stat-number">3x</div><p>mais biodiversidade em agroflorestas</p></div>
-            <div class="stat reveal-on-scroll"><div class="stat-number">25%</div><p>do carbono é estocado no solo saudável</p></div>
+            <div class="stat"><div class="stat-number">+40%</div><p>produtividade regenerativa</p></div>
+            <div class="stat"><div class="stat-number">-60%</div><p>consumo de água</p></div>
+            <div class="stat"><div class="stat-number">3x</div><p>mais biodiversidade</p></div>
+            <div class="stat"><div class="stat-number">25%</div><p>carbono estocado no solo</p></div>
+        </div>
+    </div>
+
+    <!-- Seção Agrinho 2026 -->
+    <div class="container" id="agrinho">
+        <div class="agrinho-section">
+            <h2 class="section-title" style="color: #1e2f2c; background: none;">🏆 Concurso Agrinho 2026</h2>
+            <p class="section-sub" style="color: #1e2f2c; font-weight: bold;">Tema: "Agricultura Sustentável: tecnologias e saberes para o futuro do campo"</p>
+            
+            <div class="agrinho-grid">
+                <div class="agrinho-card">
+                    <h3>📅 Datas Importantes</h3>
+                    <p>Inscrições: Março a Agosto 2026</p>
+                    <p>Entrega dos projetos: Setembro 2026</p>
+                    <p>Premiação: Novembro 2026</p>
+                </div>
+                <div class="agrinho-card">
+                    <h3>🎯 Objetivo</h3>
+                    <p>Incentivar estudantes e professores a desenvolverem projetos inovadores que aliem produção agrícola, preservação ambiental e qualidade de vida no campo.</p>
+                </div>
+                <div class="agrinho-card">
+                    <h3>🏅 Premiações</h3>
+                    <p>• Visitas técnicas a fazendas modelo</p>
+                    <p>• Bolsas de estudo</p>
+                    <p>• Equipamentos agrícolas sustentáveis</p>
+                    <p>• Viagens para eventos nacionais</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem; text-align: center;">
+                <p style="font-size: 1.1rem; margin-bottom: 1rem;">🌱 Desafio Agrinho 2026: Crie uma solução sustentável para sua comunidade rural!</p>
+                <a href="#dicas" class="btn" style="background: #1e2f2c; color: white;">Inspire-se com as dicas →</a>
+            </div>
         </div>
     </div>
 
@@ -670,44 +624,34 @@
             <h2 class="section-title">📚 Dicas e Exemplos Reais</h2>
             <p class="section-sub">Aprenda com casos de sucesso e aplique na sua propriedade ou horta urbana.</p>
             
-            <div class="tip-card reveal-on-scroll">
-                <h3><i class="fas fa-lightbulb"></i> Dica 1: Compostagem caseira</h3>
-                <p>Transforme restos de cozinha e podas em adubo rico em nutrientes. Reduz o lixo orgânico e elimina a necessidade de fertilizantes químicos.</p>
-                <div class="example-box">
-                    <i class="fas fa-check-circle"></i> <strong>Exemplo prático:</strong> Sítio São José (SP) reduziu em 90% a compra de adubos industriais após 6 meses de compostagem, produzindo 2 toneladas de húmus por ano.
-                </div>
+            <div class="tip-card">
+                <h3>💡 Dica 1: Compostagem caseira</h3>
+                <p>Transforme restos de cozinha e podas em adubo rico em nutrientes.</p>
+                <div class="example-box">📌 Exemplo: Sítio São José (SP) reduziu 90% da compra de adubos industriais.</div>
             </div>
 
-            <div class="tip-card reveal-on-scroll">
-                <h3><i class="fas fa-water"></i> Dica 2: Captação de água da chuva</h3>
-                <p>Instale calhas e reservatórios para armazenar água de chuva. Use na irrigação em períodos de estiagem, reduzindo a pressão sobre aquíferos.</p>
-                <div class="example-box">
-                    <i class="fas fa-check-circle"></i> <strong>Exemplo real:</strong> Comunidade rural do Ceará implantou cisternas e aumentou a resiliência hídrica, garantindo colheitas mesmo em anos de seca severa.
-                </div>
+            <div class="tip-card">
+                <h3>💧 Dica 2: Captação de água da chuva</h3>
+                <p>Instale calhas e reservatórios para irrigação em períodos de estiagem.</p>
+                <div class="example-box">📌 Exemplo: Comunidade no Ceará implantou cisternas e garantiu colheitas mesmo na seca.</div>
             </div>
 
-            <div class="tip-card reveal-on-scroll">
-                <h3><i class="fas fa-bug"></i> Dica 3: Controle biológico de pragas</h3>
-                <p>Utilize predadores naturais (joaninhas, crisopídeos) ou bioinseticidas à base de nim, ao invés de agrotóxicos. Protege o solo e a saúde.</p>
-                <div class="example-box">
-                    <i class="fas fa-check-circle"></i> <strong>Exemplo concreto:</strong> Fazenda Santa Clara (MG) reduziu 85% do uso de inseticidas introduzindo aves e insetos benéficos, mantendo a produtividade.
-                </div>
+            <div class="tip-card">
+                <h3>🐞 Dica 3: Controle biológico de pragas</h3>
+                <p>Use joaninhas, crisopídeos ou nim ao invés de agrotóxicos.</p>
+                <div class="example-box">📌 Exemplo: Fazenda Santa Clara (MG) reduziu 85% dos inseticidas.</div>
             </div>
 
-            <div class="tip-card reveal-on-scroll">
-                <h3><i class="fas fa-seedling"></i> Dica 4: Plantio direto na palha</h3>
-                <p>Sem revolver o solo, mantenha a cobertura morta (palha) sobre a terra. Evita erosão, retém umidade e alimenta microrganismos.</p>
-                <div class="example-box">
-                    <i class="fas fa-check-circle"></i> <strong>Dado importante:</strong> Propriedades que adotam plantio direto têm até 70% menos erosão do solo e economia de combustível.
-                </div>
+            <div class="tip-card">
+                <h3>🌾 Dica 4: Plantio direto na palha</h3>
+                <p>Mantenha cobertura morta sobre a terra para evitar erosão.</p>
+                <div class="example-box">📌 Dado: Propriedades com plantio direto têm 70% menos erosão.</div>
             </div>
 
-            <div class="tip-card reveal-on-scroll">
-                <h3><i class="fas fa-solar-panel"></i> Dica 5: Energia renovável no campo</h3>
-                <p>Instalação de painéis solares e biodigestores reduz custos e emissões. Os biodigestores transformam dejetos em biogás e biofertilizante.</p>
-                <div class="example-box">
-                    <i class="fas fa-check-circle"></i> <strong>Exemplo real:</strong> Granja do Sul (SC) utiliza biodigestor para gerar energia elétrica e reduzir em 70% os custos com energia e fertilizantes.
-                </div>
+            <div class="tip-card">
+                <h3>☀️ Dica 5: Energia renovável no campo</h3>
+                <p>Painéis solares e biodigestores reduzem custos e emissões.</p>
+                <div class="example-box">📌 Exemplo: Granja do Sul (SC) reduziu 70% dos custos com energia.</div>
             </div>
         </div>
     </div>
@@ -715,23 +659,23 @@
     <!-- Benefícios -->
     <div class="container">
         <div class="benefits">
-            <h2 class="section-title" style="margin-top:0;">🌎 Benefícios para o Planeta e para Você</h2>
+            <h2 class="section-title" style="margin-top:0;">🌎 Benefícios da Agricultura Sustentável</h2>
             <div class="benefits-grid">
-                <div class="benefit-item reveal-on-scroll"><i class="fas fa-chart-line"></i><h4>Maior lucro</h4><small>menor dependência de insumos externos</small></div>
-                <div class="benefit-item reveal-on-scroll"><i class="fas fa-heartbeat"></i><h4>Alimentos saudáveis</h4><small>livres de agrotóxicos e mais nutritivos</small></div>
-                <div class="benefit-item reveal-on-scroll"><i class="fas fa-hand-holding-heart"></i><h4>Justiça social</h4><small>fortalece agricultura familiar</small></div>
-                <div class="benefit-item reveal-on-scroll"><i class="fas fa-globe-americas"></i><h4>Clima estável</h4><small>solos saudáveis sequestram carbono</small></div>
+                <div class="benefit-item"><h3>📈 Maior lucro</h3><small>menor dependência de insumos</small></div>
+                <div class="benefit-item"><h3>🥗 Alimentos saudáveis</h3><small>livres de agrotóxicos</small></div>
+                <div class="benefit-item"><h3>🤝 Justiça social</h3><small>fortalece agricultura familiar</small></div>
+                <div class="benefit-item"><h3>🌍 Clima estável</h3><small>solos sequestram carbono</small></div>
             </div>
         </div>
     </div>
 
     <!-- Chamada final -->
     <div class="container">
-        <div class="call-to-action reveal-on-scroll">
-            <i class="fas fa-seedling"></i>
+        <div style="background: linear-gradient(135deg, var(--accent-light) 0%, var(--bg-card) 100%); border-radius: 48px; padding: 3rem 2rem; text-align: center; margin: 2rem 0 3rem 0;">
+            <div style="font-size: 3rem;">🌱</div>
             <h2 style="color: var(--accent-green); margin-bottom: 1rem;">Pequenas atitudes, grandes transformações</h2>
-            <p style="font-size: 1.1rem; max-width: 700px; margin: 0 auto 1.5rem auto; color: var(--text-secondary);">Cada prática sustentável adotada é um passo rumo a um futuro onde a natureza e a produção agrícola caminham juntas. Comece hoje mesmo com uma dessas dicas!</p>
-            <a href="#praticas" class="btn" style="display: inline-block; width: auto; padding: 0.8rem 2rem;">Começar agora 🌱</a>
+            <p style="font-size: 1.1rem; max-width: 700px; margin: 0 auto 1.5rem auto;">Cada prática sustentável adotada é um passo rumo a um futuro onde a natureza e a produção agrícola caminham juntas.</p>
+            <a href="#praticas" class="btn">Começar agora</a>
         </div>
     </div>
 </main>
@@ -741,10 +685,11 @@
         <div class="footer-links">
             <a href="#home">Início</a>
             <a href="#praticas">Práticas</a>
-            <a href="#dicas">Dicas & Exemplos</a>
+            <a href="#agrinho">Agrinho 2026</a>
+            <a href="#dicas">Dicas</a>
         </div>
-        <p style="margin: 1rem 0;">🌿 Agricultura Sustentável - Cultivando o futuro com respeito à terra e às pessoas.</p>
-        <p>💚 Conteúdo livre para inspirar produtores, estudantes e apaixonados por sustentabilidade.</p>
+        <p style="margin: 1rem 0;">🌿 Concurso Agrinho 2026 - Agricultura Sustentável: tecnologias e saberes para o futuro do campo</p>
+        <p>💚 Projeto desenvolvido para inspirar estudantes e agricultores | Sem bibliotecas externas</p>
         <p style="margin-top: 1rem;">© 2026 - Portal AgriCultura Sustentável</p>
     </div>
 </footer>
@@ -766,20 +711,17 @@
 
         // Modo escuro/claro
         const toggleBtn = document.getElementById('darkModeToggle');
-        const themeTextSpan = document.getElementById('themeText');
         const body = document.body;
         
         function setTheme(theme) {
             if(theme === 'dark') {
                 body.classList.add('dark');
                 localStorage.setItem('agrisustentavel-theme', 'dark');
-                themeTextSpan.innerHTML = 'Modo Claro';
-                toggleBtn.querySelector('i').className = 'fas fa-sun';
+                toggleBtn.innerHTML = '☀️ Modo Claro';
             } else {
                 body.classList.remove('dark');
                 localStorage.setItem('agrisustentavel-theme', 'light');
-                themeTextSpan.innerHTML = 'Modo Escuro';
-                toggleBtn.querySelector('i').className = 'fas fa-moon';
+                toggleBtn.innerHTML = '🌙 Modo Escuro';
             }
         }
         
@@ -796,7 +738,7 @@
         });
 
         // Scroll Reveal Animation
-        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+        const revealElements = document.querySelectorAll('.card, .tip-card, .stat, .benefit-item');
         
         function checkReveal() {
             const windowHeight = window.innerHeight;
@@ -804,37 +746,17 @@
             
             revealElements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
-                
                 if (elementTop < windowHeight - revealThreshold) {
                     element.classList.add('revealed');
                 }
             });
         }
         
-        // Verificar elementos ao carregar e ao rolar
         window.addEventListener('load', checkReveal);
         window.addEventListener('scroll', checkReveal);
         
-        // Adicionar classes para animações de cards
-        const cards = document.querySelectorAll('.card, .tip-card, .stat, .benefit-item');
-        cards.forEach(card => {
-            if(card.classList.contains('reveal-on-scroll')) return;
-            card.style.opacity = "0";
-            card.style.transform = "translateY(30px)";
-            card.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if(entry.isIntersecting) {
-                        entry.target.style.opacity = "1";
-                        entry.target.style.transform = "translateY(0)";
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            observer.observe(card);
-        });
+        // Garantir que elementos sejam revelados
+        setTimeout(checkReveal, 100);
     })();
 </script>
 </body>
